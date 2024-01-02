@@ -10,8 +10,11 @@ const Range = maxValue =>
 const EndlessViewer = props => {
 
   const [ debug, setDebug ] = useState(false);
-
   const [ annotationMode, setAnnotationMode ] = useState('ANNOTATION');
+
+  // New state for additional features
+  // Example: Adding a zoom feature
+  const [ zoomLevel, setZoomLevel ] = useState(1);
 
   const onToggleRelationsMode = () => {
     if (annotationMode === 'RELATIONS')
@@ -26,31 +29,40 @@ const EndlessViewer = props => {
     else
       setAnnotationMode('IMAGE');
   }
+
+  // Example function to handle zoom level change
+  const handleZoomChange = (increment) => {
+    setZoomLevel(prevZoom => prevZoom + increment);
+  }
   
   return (
     <div>
       <header>
         <button onClick={() => setDebug(!debug)}>
-          <span className="inner">
-            <CgDebug />
-          </span>
-        </button>
+  <span className="inner">
+    <CgDebug />
+  </span>
+  Debug
+</button>
 
-        <button 
-          className={annotationMode === 'RELATIONS' ? 'active' : null} 
-          onClick={onToggleRelationsMode}>
-          <span className="inner">
-            <CgArrowsExpandDownRight />
-          </span>
-        </button>
+<button 
+  className={annotationMode === 'RELATIONS' ? 'active' : null} 
+  onClick={onToggleRelationsMode}>
+  <span className="inner">
+    <CgArrowsExpandDownRight />
+  </span>
+  Relations
+</button>
 
-        <button
-          className={annotationMode === 'IMAGE' ? 'active' : null} 
-          onClick={onToggleImageMode}>
-          <span className="inner">
-            <RiImageEditFill />
-          </span>
-        </button>
+<button
+  className={annotationMode === 'IMAGE' ? 'active' : null} 
+  onClick={onToggleImageMode}>
+  <span className="inner">
+    <RiImageEditFill />
+  </span>
+  Image
+</button>
+
       </header>
 
       <main>
@@ -65,7 +77,8 @@ const EndlessViewer = props => {
               debug={debug} 
               store={props.store}
               connections={props.connections}
-              annotationMode={annotationMode} 
+              annotationMode={annotationMode}
+              zoomLevel={zoomLevel}
               onCreateAnnotation={props.onCreateAnnotation}
               onUpdateAnnotation={props.onUpdateAnnotation}
               onDeleteAnnotation={props.onDeleteAnnotation} 
@@ -74,8 +87,7 @@ const EndlessViewer = props => {
         </div>
       </main>
     </div>
-  )
-
+  );
 }
 
 export default EndlessViewer;

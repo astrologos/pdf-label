@@ -66,40 +66,42 @@ const PDFViewer = props => {
   }
 
   return (
-    <div>
-      <div>
-        <h3>Imported PDFs:</h3>
+    <div className="pdf-container">
+      <div className="pdf-sidebar">
+        <h3><u>PDF Library</u></h3>
         <ul>
           {importedFiles.map((file, index) => (
             <li key={index}>{file}</li>
           ))}
         </ul>
       </div>
-      {pdf ? 
-        props.mode === 'scrolling' ? 
-          <EndlessViewer
-            {...props}
-            pdf={pdf}
-            store={store}
-            connections={connections}
-            onCreateAnnotation={onCreateAnnotation}
-            onUpdateAnnotation={onUpdateAnnotation}
-            onDeleteAnnotation={onDeleteAnnotation} 
-            onCancelSelected={onCancelSelected} /> :
+      <div className="pdf-viewer">
+        {pdf ? 
+          props.mode === 'scrolling' ? 
+            <EndlessViewer
+              {...props}
+              pdf={pdf}
+              store={store}
+              connections={connections}
+              onCreateAnnotation={onCreateAnnotation}
+              onUpdateAnnotation={onUpdateAnnotation}
+              onDeleteAnnotation={onDeleteAnnotation} 
+              onCancelSelected={onCancelSelected} /> :
+            
+            <PaginatedViewer 
+              {...props}
+              pdf={pdf}
+              store={store}
+              connections={connections}
+              onCreateAnnotation={onCreateAnnotation}
+              onUpdateAnnotation={onUpdateAnnotation}
+              onDeleteAnnotation={onDeleteAnnotation} 
+              onCancelSelected={onCancelSelected} />
           
-          <PaginatedViewer 
-            {...props}
-            pdf={pdf}
-            store={store}
-            connections={connections}
-            onCreateAnnotation={onCreateAnnotation}
-            onUpdateAnnotation={onUpdateAnnotation}
-            onDeleteAnnotation={onDeleteAnnotation} 
-            onCancelSelected={onCancelSelected} />
-        
-        : null}
+          : null}
+      </div>
     </div>
   );
-}
+};
 
 export default PDFViewer;

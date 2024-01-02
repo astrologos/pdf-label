@@ -9,41 +9,58 @@ html, body {
 }
 
 header {
-  position:fixed;
-  width:100%;
-  padding:20px;
-  box-shadow:0 1px 10px rgba(0, 0, 0, 0.3);
-  background-color:#fff;
-  z-index:3;
+  position: fixed;
+  width: 100%;
+  padding: 10px 20px; /* Adjust padding for better alignment */
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+  z-index: 3;
+  display: flex; /* Align buttons in a row */
+  align-items: center; /* Center-align items vertically */
+  justify-content: start; /* Align items to the start of the header */
 }
 
 header button {
-  background:none;
-  border:none;
-  outline:none;
-  font-size:24px;
-  cursor:pointer;
-  padding:3px;
-  border-radius:50%;
-  width:40px;
-  height:40px;
-  display:inline-block;
-  margin-right:10px;
+  background: #f0f0f0; /* Light grey background */
+  border: 1px solid #ccc; /* Border for buttons */
+  border-radius: 5px; /* Rounded corners */
+  padding: 5px 10px; /* Padding inside buttons */
+  padding-top: 5px;
+  padding-left: 5px; /* Reduced left padding */
+  cursor: pointer; /* Add mouse pointer on hover */
+  display: flex; /* Flex display to align icon and text */
+  align-items: center; /* Center items vertically */
+  justify-content: left; /* Center items horizontally */
+  font-size: 16px; /* Font size for text */
+  color: #333; /* Text color */
+  margin-right: 10px;
 }
 
 header button span {
-  display:flex;
-  justify-content:center;
-  align-items:center;
+  display: inline-block; /* Make sure icon and text are on the same line */
+  padding-top: 4px;
+  padding-left: 4px;
+  padding-right: 4px;
+  margin-right: 5px;
+  align-items: center;
+  justify-content: center;
+
+  /*  Add a border to the icon  */
+  border: 1px solid #333;
+  /* Center the border */
+  border-radius: 15%; /* Rounded corners for the border */
+  
+
+
 }
 
 header button:hover {
-  background:rgba(0, 0, 0, 0.08);
+  background: #e0e0e0; /* Slightly darker background on hover */
 }
 
 header button.active {
-  background-color:orange;
-  color:#fff;
+  background-color: rgb(17, 117, 107);
+  color: #fff;
 }
 
 header label {
@@ -116,4 +133,23 @@ header label {
 
 .r6o-connections-editor {
   z-index:4;
+}
+
+.pdf-container {
+  display: flex;
+  flex-direction: row; /* Aligns children (sidebar and viewer) horizontally */
+  height: 100vh; /* Full viewport height */
+}
+
+.pdf-sidebar {
+  font: 14pt Arial, Helvetica, sans-serif;
+  flex: 1; /* Adjust as needed, represents the flex-grow factor */
+  overflow-y: auto; /* Makes sidebar scrollable if content overflows */
+  padding-left: 20px; /* Add padding to all sides */
+}
+
+.pdf-viewer {
+  flex: 3; /* Adjust as needed, takes more space than sidebar */
+  overflow-y: auto; /* Makes PDF viewer scrollable */
+  /* Add other styling as needed */
 }
