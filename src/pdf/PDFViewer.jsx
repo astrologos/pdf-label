@@ -16,8 +16,8 @@ const store = new Store();
 const PDFViewer = props => {
 
   const [ pdf, setPdf ] = useState();
-
   const [ connections, setConnections ] = useState();
+  const [ importedFiles, setImportedFiles ] = useState([]);
 
   // Load PDF on mount
   useEffect(() => {
@@ -31,7 +31,10 @@ const PDFViewer = props => {
 
     PDFJS.getDocument(props.url).promise
       .then(
-        pdf => setPdf(pdf), 
+        pdf => {
+          setPdf(pdf);
+          setImportedFiles(prevFiles => [...prevFiles, props.url]);
+        }, 
         error => console.error(error)
       );
 
@@ -62,30 +65,41 @@ const PDFViewer = props => {
     props.onCancelSelected && props.onCancelSelected(a);
   }
 
-  return pdf ? 
-    props.mode === 'scrolling' ? 
-      <EndlessViewer
-        {...props}
-        pdf={pdf}
-        store={store}
-        connections={connections}
-        onCreateAnnotation={onCreateAnnotation}
-        onUpdateAnnotation={onUpdateAnnotation}
-        onDeleteAnnotation={onDeleteAnnotation} 
-        onCancelSelected={onCancelSelected} /> :
-      
-      <PaginatedViewer 
-        {...props}
-        pdf={pdf}
-        store={store}
-        connections={connections}
-        onCreateAnnotation={onCreateAnnotation}
-        onUpdateAnnotation={onUpdateAnnotation}
-        onDeleteAnnotation={onDeleteAnnotation} 
-        onCancelSelected={onCancelSelected} />
-    
-    : null;
-
+  return (
+    <div>
+      <div>
+        <h3>Imported PDFs:</h3>
+        <ul>
+          {importedFiles.map((file, index) => (
+            <li key={index}>{file}</li>
+          ))}
+        </ul>
+      </div>
+      {pdf ? 
+        props.mode === 'scrolling' ? 
+          <EndlessViewer
+            {...props}
+            pdf={pdf}
+            store={store}
+            connections={connections}
+            onCreateAnnotation={onCreateAnnotation}
+            onUpdateAnnotation={onUpdateAnnotation}
+            onDeleteAnnotation={onDeleteAnnotation} 
+            onCancelSelected={onCancelSelected} /> :
+          
+          <PaginatedViewer 
+            {...props}
+            pdf={pdf}
+            store={store}
+            connections={connections}
+            onCreateAnnotation={onCreateAnnotation}
+            onUpdateAnnotation={onUpdateAnnotation}
+            onDeleteAnnotation={onDeleteAnnotation} 
+            onCancelSelected={onCancelSelected} />
+        
+        : null}
+    </div>
+  );
 }
 
 export default PDFViewer;
