@@ -38,37 +38,34 @@ const EndlessViewer = props => {
   return (
     <div>
       <header>
-        <button onClick={() => setDebug(!debug)}>
-  <span className="inner">
-    <CgDebug />
+        <span className='debug-header'>
+          <button 
+            className={debug ? 'active' : null}
+            onClick={() => setDebug(!debug)}
+            >
+              <span className="inner">
+                <CgDebug />
+              </span>
+            Debug
+          </button>
+          </span>
+
+<span className='annotate-header'>
+    <button
+      className={annotationMode === 'IMAGE' ? 'active' : null} 
+      onClick={onToggleImageMode}>
+      <span className="inner">
+        <RiImageEditFill />
+      </span>
+      Image
+    </button>
   </span>
-  Debug
-</button>
+</header>
 
-<button 
-  className={annotationMode === 'RELATIONS' ? 'active' : null} 
-  onClick={onToggleRelationsMode}>
-  <span className="inner">
-    <CgArrowsExpandDownRight />
-  </span>
-  Relations
-</button>
-
-<button
-  className={annotationMode === 'IMAGE' ? 'active' : null} 
-  onClick={onToggleImageMode}>
-  <span className="inner">
-    <RiImageEditFill />
-  </span>
-  Image
-</button>
-
-      </header>
-
-      <main>
-        <div className="pdf-viewer-container">
-          {Range(props.pdf.numPages).map(idx =>
-            <AnnotatablePage 
+<main>
+  <div className="pdf-viewer-container">
+      {Range(props.pdf.numPages).map(idx =>
+          <AnnotatablePage 
               key={idx}
               url={props.url}
               pdf={props.pdf}

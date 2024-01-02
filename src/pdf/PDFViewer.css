@@ -1,23 +1,28 @@
-html, body {
+  html, body {
   padding:0;
   margin:0;
 }
 
 #app main {
+  /* set minimum window size
+      to avoid layout issues */
+  min-width: 800px;
+  min-height: 600px;
+  
   background-color:#cbcbcb;
   padding:110px 0 40px 0;
 }
 
 header {
-  position: fixed;
-  width: 100%;
+  position:inherit;
+  
   padding: 10px 20px; /* Adjust padding for better alignment */
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
   background-color: #fff;
   z-index: 3;
   display: flex; /* Align buttons in a row */
   align-items: center; /* Center-align items vertically */
-  justify-content: start; /* Align items to the start of the header */
+  justify-content: center; /* Align items to the start of the header */
 }
 
 header button {
@@ -103,6 +108,8 @@ header label {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+
+
 .pdf-viewer-container {
   display:flex;
   justify-content:center;
@@ -157,12 +164,24 @@ header label {
   box-shadow:1px 1px 10px rgba(0, 0, 0, 0.1);
 }
 
+.r6o-connections {
+  z-index:3;
+  transition: z-index 2s;
+  animation: persist 5s forwards;
+}
+
 .r6o-connections-canvas {
   z-index:3;
+  z-index:3;
+  transition: z-index 2s;
+  animation: persist 5s forwards;
 }
 
 .r6o-connections-editor {
   z-index:4;
+  z-index:3;
+  transition: z-index 2s;
+  animation: persist 5s forwards;
 }
 
 .pdf-container {
@@ -171,11 +190,50 @@ header label {
   height: 100vh; /* Full viewport height */
 }
 
-.pdf-sidebar {
+.sidebar {
+display: flex;
+  /* force child elements to be on separate lines */
+  flex-direction: column;
+  
+  /* set minimum width to avoid layout issues */
+  min-width: 340px;
+
   font: 14pt Arial, Helvetica, sans-serif;
   flex: 1; /* Adjust as needed, represents the flex-grow factor */
   overflow-y: auto; /* Makes sidebar scrollable if content overflows */
-  padding-left: 20px; /* Add padding to all sides */
+}
+
+
+.sidebar span {
+  overflow-wrap: break-word;
+  flex-direction: column;
+
+  flex-wrap:wrap;
+  
+  /* set minimum width to avoid layout issues */
+
+  
+  margin:2%;
+  padding:3%;
+
+  border: 1px solid #333; /* Add border to all sides */
+  border-radius: 5px; /* Rounded corners */
+  /* vertical flexbox layout */
+}
+
+/* for class name annotations in sidebar span, flex box should grow to fit content */
+.sidebar span.annotations {
+  flex: 1;
+}
+
+.sidebar h3 {
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  /* vertical flexbox layout */
+  display: inline-block;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .pdf-viewer {

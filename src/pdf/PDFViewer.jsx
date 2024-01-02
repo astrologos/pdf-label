@@ -67,14 +67,22 @@ const PDFViewer = props => {
 
   return (
     <div className="pdf-container">
-      <div className="pdf-sidebar">
+      <div className="sidebar">
+        <span className='library'>
         <h3><u>PDF Library</u></h3>
+        
         <ul>
           {importedFiles.map((file, index) => (
             <li key={index}>{file}</li>
           ))}
         </ul>
+        </span>
+        <span className='annotations'>
+        <h3><u>Annotations</u></h3>  
+
+        </span>
       </div>
+
       <div className="pdf-viewer">
         {pdf ? 
           props.mode === 'scrolling' ? 
