@@ -1,243 +1,207 @@
   html, body {
-  padding:0;
-  margin:0;
-}
+    padding:0;
+    margin:0;
+  }
 
-#app main {
-  /* set minimum window size
-      to avoid layout issues */
-  min-width: 800px;
-  min-height: 600px;
-  
-  background-color:#cbcbcb;
-  padding:110px 0 40px 0;
-}
+  #app main {
+    min-width: 800px;
+    min-height: 600px;
+    background-color:#cbcbcb;
+    padding:110px 0 40px 0;
+  }
 
-header {
-  position:inherit;
-  
-  padding: 10px 20px; /* Adjust padding for better alignment */
-  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
-  background-color: #fff;
-  z-index: 3;
-  display: flex; /* Align buttons in a row */
-  align-items: center; /* Center-align items vertically */
-  justify-content: center; /* Align items to the start of the header */
-}
+  header {
+    position:inherit;
+    padding: 10px 20px;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-header button {
-  background-color: #f0f0f0; /* Light grey background */
-  border: 1px solid #78787862; /* Border for buttons */
-  border-radius: 5px; /* Rounded corners */
-  padding: 5px 10px; /* Padding inside buttons */
-  padding-top: 5px;
-  padding-left: 5px; /* Reduced left padding */
-  cursor: pointer; /* Add mouse pointer on hover */
-  display: flex; /* Flex display to align icon and text */
-  align-items: center; /* Center items vertically */
-  justify-content: left; /* Center items horizontally */
-  font-size: 16px; /* Font size for text */
-  color: #333; /* Text color */
-  margin-right: 10px;
-}
+  header button {
+    background-color: #f0f0f0;
+    border: 1px solid #78787862;
+    border-radius: 5px;
+    padding: 5px 10px;
+    padding-top: 5px;
+    padding-left: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    font-size: 16px;
+    color: #333;
+    margin-right: 10px;
+  }
 
-header button:hover {
-  background-color: #56cfc970; /* Light grey background */
-  border: 1px solid #11c5bca3; /* Border for buttons */
-  border-radius: 5px; /* Rounded corners */
-  padding: 5px 10px; /* Padding inside buttons */
-  padding-top: 5px;
-  padding-left: 5px; /* Reduced left padding */
-  cursor: pointer; /* Add mouse pointer on hover */
-  display: flex; /* Flex display to align icon and text */
-  align-items: center; /* Center items vertically */
-  justify-content: left; /* Center items horizontally */
-  font-size: 16px; /* Font size for text */
-  color: #333; /* Text color */
-  margin-right: 10px;
-  /* add a bright neon glow with very short radius, and make it glow*/
+  header button:hover {
+    background-color: #56cfc970;
+    border: 1px solid #11c5bca3;
+    border-radius: 5px;
+    padding: 5px 10px;
+    padding-top: 5px;
+    padding-left: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    font-size: 16px;
+    color: #333;
+    margin-right: 10px;
+    box-shadow: 0 0 2px #56cfc970, 0 0 4px #56cfc970, 0 0 8px #56cfc970;
+  }
 
-  box-shadow: 0 0 2px #56cfc970, 0 0 4px #56cfc970, 0 0 8px #56cfc970;
-}
+  header button.active:hover {
+    background-color: #56cfc970;
+    border: 1px solid #0b4e49;
+    border-radius: 5px;
+    padding: 5px 10px;
+    padding-top: 5px;
+    padding-left: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    font-size: 16px;
+    color: #333;
+    margin-right: 10px;
+    box-shadow: 0 0 2px #56cfc970, 0 0 4px #56cfc970, 0 0 8px #56cfc970;
+  }
 
+  header button span {
+    display: inline-block;
+    padding-top: 4px;
+    padding-left: 4px;
+    padding-right: 6px;
+    margin-right: 5px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15%;
+  }
 
-header button.active:hover {
-  background-color: #56cfc970;
-  border: 1px solid #0b4e49; /* Border for buttons */
-  border-radius: 5px; /* Rounded corners */
-  padding: 5px 10px; /* Padding inside buttons */
-  padding-top: 5px;
-  padding-left: 5px; /* Reduced left padding */
-  cursor: pointer; /* Add mouse pointer on hover */
-  display: flex; /* Flex display to align icon and text */
-  align-items: center; /* Center items vertically */
-  justify-content: left; /* Center items horizontally */
-  font-size: 16px; /* Font size for text */
-  color: #333; /* Text color */
-  margin-right: 10px;
-  /* add a bright neon glow with very short radius, and make it glow*/
-  box-shadow: 0 0 2px #56cfc970, 0 0 4px #56cfc970, 0 0 8px #56cfc970;
+  header button.active {
+    background-color: rgba(76, 145, 138, 0.900);
+    color: #fff;
+  }
 
+  header label {
+    vertical-align:super;
+    font-size:18px;
+    padding:4px 10px;
+    margin:0 8px;
+    background-color:rgba(0, 0, 0, 0.08);
+    border-radius:3px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
 
-}
+  .pdf-viewer-container {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+  }
 
-header button span {
-  display: inline-block; /* Make sure icon and text are on the same line */
-  padding-top: 4px;
-  padding-left: 4px;
-  padding-right: 6px;
-  margin-right: 5px;
-  align-items: center;
-  justify-content: center;
-  border-radius: 15%; /* Rounded corners for the border */
-}
+  .page-container {
+    position:relative;
+    margin:10px 0;
+    min-height:50vh;
+  }
 
-header button.active {
-  background-color: rgba(76, 145, 138, 0.900);
-  color: #fff;
-  
-}
+  .page-container .r6o-content-wrapper {
+    position:absolute !important;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+  }
 
-header label {
-  vertical-align:super;
-  font-size:18px;
-  padding:4px 10px;
-  margin:0 8px;
-  background-color:rgba(0, 0, 0, 0.08);
-  border-radius:3px;
-  font-family: Arial, Helvetica, sans-serif;
-}
+  .page-container .textLayer {
+    opacity:1;
+    z-index:1;
+  }
 
+  .page-container .a9s-annotationlayer {
+    z-index:2;
+    pointer-events:none;
+  }
 
+  .page-container .r6o-annotation,
+  .page-container .a9s-annotation {
+    pointer-events:auto;
+  }
 
-.pdf-viewer-container {
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
-}
+  .page-container.debug .textLayer span {
+    color:red;
+  }
 
-.page-container {
-  position:relative;
-  margin:10px 0;
-  min-height:50vh;
-}
+  .page-container .textLayer br {
+    display:none;
+  }
 
-.page-container .r6o-content-wrapper {
-  position:absolute !important;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
-}
+  .page-container .textLayer span.r6o-annotation,
+  .page-container .textLayer span.r6o-selection {
+    position:relative;
+    cursor:pointer;
+  }
 
-.page-container .textLayer {
-  opacity:1;
-  z-index:1;
-}
+  .page-container canvas {
+    box-shadow:1px 1px 10px rgba(0, 0, 0, 0.1);
+  }
 
-.page-container .a9s-annotationlayer {
-  z-index:2;
-  pointer-events:none;
-}
+  .r6o-connections {
+    z-index:4;
+  }
 
-.page-container .r6o-annotation,
-.page-container .a9s-annotation {
-  pointer-events:auto;
-}
+  .r6o-connections-canvas {
+    z-index:4;
+    }
 
-.page-container.debug .textLayer span {
-  color:red;
-}
+  .r6o-connections-editor {
+    z-index:4;
+  }
 
-.page-container .textLayer br {
-  display:none;
-}
+  .pdf-container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+  }
 
-.page-container .textLayer span.r6o-annotation,
-.page-container .textLayer span.r6o-selection {
-  position:relative;
-  cursor:pointer;
-}
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    min-width: 340px;
+    font: 14pt Arial, Helvetica, sans-serif;
+    flex: 1;
+    overflow-y: auto;
+  }
 
-.page-container canvas {
-  box-shadow:1px 1px 10px rgba(0, 0, 0, 0.1);
-}
+  .sidebar span {
+    overflow-wrap: break-word;
+    flex-direction: column;
+    flex-wrap:wrap;
+    margin:2%;
+    padding:3%;
+    border: 1px solid #333;
+    border-radius: 5px;
+  }
 
-.r6o-connections {
-  z-index:3;
-  transition: z-index 2s;
-  animation: persist 5s forwards;
-}
+  .sidebar span.annotations {
+    flex: 1;
+  }
 
-.r6o-connections-canvas {
-  z-index:3;
-  z-index:3;
-  transition: z-index 2s;
-  animation: persist 5s forwards;
-}
+  .sidebar h3 {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
-.r6o-connections-editor {
-  z-index:4;
-  z-index:3;
-  transition: z-index 2s;
-  animation: persist 5s forwards;
-}
-
-.pdf-container {
-  display: flex;
-  flex-direction: row; /* Aligns children (sidebar and viewer) horizontally */
-  height: 100vh; /* Full viewport height */
-}
-
-.sidebar {
-display: flex;
-  /* force child elements to be on separate lines */
-  flex-direction: column;
-  
-  /* set minimum width to avoid layout issues */
-  min-width: 340px;
-
-  font: 14pt Arial, Helvetica, sans-serif;
-  flex: 1; /* Adjust as needed, represents the flex-grow factor */
-  overflow-y: auto; /* Makes sidebar scrollable if content overflows */
-}
-
-
-.sidebar span {
-  overflow-wrap: break-word;
-  flex-direction: column;
-
-  flex-wrap:wrap;
-  
-  /* set minimum width to avoid layout issues */
-
-  
-  margin:2%;
-  padding:3%;
-
-  border: 1px solid #333; /* Add border to all sides */
-  border-radius: 5px; /* Rounded corners */
-  /* vertical flexbox layout */
-}
-
-/* for class name annotations in sidebar span, flex box should grow to fit content */
-.sidebar span.annotations {
-  flex: 1;
-}
-
-.sidebar h3 {
-  margin: 0; /* Remove default margin */
-  padding: 0; /* Remove default padding */
-  /* vertical flexbox layout */
-  display: inline-block;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.pdf-viewer {
-  flex: 3; /* Adjust as needed, takes more space than sidebar */
-  overflow-y: auto; /* Makes PDF viewer scrollable */
-  /* Add other styling as needed */
-}
+  .pdf-viewer {
+    flex: 3;
+    overflow-y: auto;
+  }
