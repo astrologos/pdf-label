@@ -21,8 +21,8 @@ header {
 }
 
 header button {
-  background: #f0f0f0; /* Light grey background */
-  border: 1px solid #ccc; /* Border for buttons */
+  background-color: #f0f0f0; /* Light grey background */
+  border: 1px solid #78787862; /* Border for buttons */
   border-radius: 5px; /* Rounded corners */
   padding: 5px 10px; /* Padding inside buttons */
   padding-top: 5px;
@@ -36,31 +36,61 @@ header button {
   margin-right: 10px;
 }
 
+header button:hover {
+  background-color: #56cfc970; /* Light grey background */
+  border: 1px solid #11c5bca3; /* Border for buttons */
+  border-radius: 5px; /* Rounded corners */
+  padding: 5px 10px; /* Padding inside buttons */
+  padding-top: 5px;
+  padding-left: 5px; /* Reduced left padding */
+  cursor: pointer; /* Add mouse pointer on hover */
+  display: flex; /* Flex display to align icon and text */
+  align-items: center; /* Center items vertically */
+  justify-content: left; /* Center items horizontally */
+  font-size: 16px; /* Font size for text */
+  color: #333; /* Text color */
+  margin-right: 10px;
+  /* add a bright neon glow with very short radius, and make it glow*/
+
+  box-shadow: 0 0 2px #56cfc970, 0 0 4px #56cfc970, 0 0 8px #56cfc970;
+}
+
+
+header button.active:hover {
+  background-color: #56cfc970;
+  border: 1px solid #0b4e49; /* Border for buttons */
+  border-radius: 5px; /* Rounded corners */
+  padding: 5px 10px; /* Padding inside buttons */
+  padding-top: 5px;
+  padding-left: 5px; /* Reduced left padding */
+  cursor: pointer; /* Add mouse pointer on hover */
+  display: flex; /* Flex display to align icon and text */
+  align-items: center; /* Center items vertically */
+  justify-content: left; /* Center items horizontally */
+  font-size: 16px; /* Font size for text */
+  color: #333; /* Text color */
+  margin-right: 10px;
+  /* add a bright neon glow with very short radius, and make it glow*/
+  box-shadow: 0 0 2px #56cfc970, 0 0 4px #56cfc970, 0 0 8px #56cfc970;
+
+
+}
+
 header button span {
   display: inline-block; /* Make sure icon and text are on the same line */
   padding-top: 4px;
   padding-left: 4px;
-  padding-right: 4px;
+  padding-right: 6px;
   margin-right: 5px;
   align-items: center;
   justify-content: center;
-
-  /*  Add a border to the icon  */
-  border: 1px solid #333;
-  /* Center the border */
   border-radius: 15%; /* Rounded corners for the border */
-  
-
-
-}
-
-header button:hover {
-  background: #e0e0e0; /* Slightly darker background on hover */
 }
 
 header button.active {
-  background-color: rgb(17, 117, 107);
+  background-color: rgba(76, 145, 138, 0.900);
   color: #fff;
+  
 }
 
 header label {

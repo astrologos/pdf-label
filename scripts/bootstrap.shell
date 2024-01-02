@@ -1,4 +1,0 @@
-conda create -n annotate-studio nodejs python pip
-conda activate annotate-studio
-
-npm install
